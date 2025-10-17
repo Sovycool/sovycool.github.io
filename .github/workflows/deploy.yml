@@ -1,4 +1,5 @@
 name: Deploy Astro to GitHub Pages
+
 on:
   push:
     branches: [ main ]
@@ -19,16 +20,33 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
-        with: { node-version: 20 }
+        with: { node-version: 20, cache: 'npm' }
+
+      # Installe les deps
       - run: npm ci
+
+      # (Astro + Tailwind v4 avec le plugin Vite)
+      # Assure-toi que @tailwindcss/vite est bien dans package.json et astro.config.mjs
+
+      # Build du site
       - run: npm run build
-      # Empêche Jekyll de toucher aux fichiers publiés
+
+      # Désactive explicitement Jekyll côté Pages (même si on passe par Actions)
       - run: touch dist/.nojekyll
+
+      # Debug: liste le contenu publié
+      - run: ls -la dist && (test -f dist/.nojekyll && echo ".nojekyll présent ✅")
+
+      # Prépare l’artefact Pages
       - uses: actions/upload-pages-artifact@v3
         with: { path: dist }
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/deploy-pages@v4
+      - id: deployment
+        uses: actions/deploy-pages@v4

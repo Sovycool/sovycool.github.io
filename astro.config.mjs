@@ -7,5 +7,5 @@ export default defineConfig({
   integrations: [],
   vite: { plugins: [tailwind()] },
   site: 'https://sovycool.github.io',
-  base: '/portfolio', // très important pour les assets/routes sur Pages
+  base: '/', // très important pour les assets/routes sur Pages
 });

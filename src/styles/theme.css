@@ -1,0 +1,15 @@
+:root {
+  --violet-900: #2d0e74;
+  --violet-800: #55077d;
+  --indigo-500: #6553e9;
+  --pink-400:   #b053e9;
+  --blue-400:   #538ce9;
+
+  --bg:        #0b0720;   /* nuit violette très sombre */
+  --text:      #e9e7ff;   /* texte doux */
+  --muted:     #bfb7ffcc;
+
+  --glow-1:    #6553e9;
+  --glow-2:    #b053e9;
+  --glass:     16px;
+}

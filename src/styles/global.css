@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@import "./theme.css";
+
+html, body { background: var(--bg); color: var(--text); }
+
+.neon-text {
+  text-shadow:
+    0 0 10px var(--glow-1),
+    0 0 20px var(--glow-2);
+}
+
+.glass {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--glass);
+}
+
+.gradient-hero {
+  background:
+    radial-gradient(60% 80% at 70% 20%, color-mix(in oklab, var(--glow-1) 40%, transparent) 0%, transparent 70%),
+    radial-gradient(40% 60% at 30% 80%, color-mix(in oklab, var(--glow-2) 40%, transparent) 0%, transparent 70%),
+    linear-gradient(180deg, #0b0720 0%, #100a2e 100%);
+}
+
+.starfield {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, #ffffff77 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 70% 60%, #ffffff55 50%, transparent 51%),
+    radial-gradient(1px 1px at 40% 80%, #ffffff33 50%, transparent 51%);
+  animation: twinkle 6s infinite ease-in-out;
+}
+@keyframes twinkle {
+  0%,100% { opacity: .8; } 50% { opacity: .4; }
+}
+
+a {
+  background:
+    linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat;
+  transition: background-size .25s ease;
+}
+
+a:hover { background-size: 100% 2px; }

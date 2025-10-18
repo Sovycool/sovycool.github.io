@@ -6,14 +6,14 @@ export default function BurgerMenu() {
     const closeI= document.getElementById('closeIcon');
 
     function openMenu() {
-    menu.classList.remove('pointer-events-none', 'opacity-0', 'scale-95');
+    menu.classList.remove('pointer-events-none', 'opacity-0', 'scale-95', 'scale-y-0');
     menu.classList.add('opacity-100', 'scale-100');
     btn.setAttribute('aria-expanded', 'true');
     openI.classList.add('hidden');
     closeI.classList.remove('hidden');
     }
     function closeMenu() {
-    menu.classList.add('pointer-events-none', 'opacity-0', 'scale-95');
+    menu.classList.add('pointer-events-none', 'opacity-0', 'scale-95', 'scale-y-0');
     menu.classList.remove('opacity-100', 'scale-100');
     btn.setAttribute('aria-expanded', 'false');
     openI.classList.remove('hidden');

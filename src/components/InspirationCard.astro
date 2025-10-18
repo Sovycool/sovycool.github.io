@@ -33,7 +33,9 @@ const { title, image, desc, tags = [], href, fullsize = false } = Astro.props;
     )
   ) : (
     <>
-      {image && <img src={image} alt={title} class="rounded-xl mb-4" />}
+      <div class="flex justify-center">
+        {image && <img src={image} alt={title} class="rounded-xl mb-4" />}
+      </div>
       <h3 class="text-xl font-semibold mb-2">{title}</h3>
       <p class="text-sm text-muted mb-4">{desc}</p>
       <div class="flex flex-wrap gap-2 mb-4">

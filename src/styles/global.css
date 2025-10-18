@@ -54,16 +54,16 @@ a:hover {
 
 .shadow-neon {
   box-shadow:
-      0 0 5px var(--glow-1),
-      0 0 10px var(--glow-2);
+      0 0 10px var(--glow-1),
+      0 0 15px var(--glow-2);
     transition: box-shadow .3s ease, transform .3s ease;
 }
 
-.shadow-neon:hover {
-    box-shadow:
-      0 0 10px var(--accent),
-      0 0 20px var(--glow-2);
-    transform: scale(1.05);
+a.shadow-neon:hover {
+  box-shadow:
+    0 0 15px var(--accent),
+    0 0 25px var(--glow-2);
+  transform: scale(1.05);
 }
 
 body {

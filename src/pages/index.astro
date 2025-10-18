@@ -12,26 +12,40 @@ import { inspirations } from "../data/inspirations";
 <BaseLayout>
   <Hero />
 
-  <Section id="about" title="À propos" subtitle="Un profil curieux et créatif">
-    <div class="grid md:grid-cols-2 gap-8 items-center">
-      <div class="glass p-6 rounded-2xl">
+  <div class="flex flex-col-reverse pt-20 md:flex-row-reverse items-center gap-6 md:gap-10 px-4 sm:px-8 md:px-10 lg:px-60 mb-20">
+  <!-- Image d'abord en mobile, à gauche en desktop -->
+  <img class="order-1 md:order-1 w-auto h-auto rounded-2xl object-cover" src="/images/pp.png" alt="C'est moiii" loading="lazy"/>
+
+  <!-- Texte ensuite en mobile, à droite en desktop -->
+  <Section id="about" title="À propos" subtitle="Un profil curieux et créatif" class="order-2 md:order-2 w-full">
+    <div class="w-full">
+      <div class="glass p-5 sm:p-6 rounded-2xl text-center md:text-left">
         <p>
-          Je m'appelle Sovann Dufresne — étudiant EPITECH Mulhouse 🎓.
+          Je m'appelle <span class="neon-text"><strong>Sovann Dufresne</strong></span> — étudiant EPITECH Mulhouse.
           J'adore concevoir des expériences visuelles et ludiques, mêlant
-          code, design et storytelling. Ce portfolio met en avant mes projets,
-          dont mon jeu principal <span class="neon-text"><strong>The Greed</strong></span>.
+          design et gameplay. Ce portfolio met en avant mes projets,
+          dont mon jeu principal
+          <a href="https://github.com/Sovycool/TheGreed" class="neon-text"><strong>The Greed</strong></a>.
+          Tout ce que je veux, c'est créer des univers immersifs avec des mécaniques
+          de jeu passionnantes.
         </p>
       </div>
-      <img class="rounded-2xl" src="/images/pp.png" alt="C'est moiii" />
     </div>
   </Section>
+</div>
+
   <Section id="projects" title="Projets phares" subtitle="Sélection récente">
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 [column-fill: balance]">
       {featured.map(p => <ProjectCard {...p} />)}
     </div>
   </Section>
 
-  <Section id="mood" title="Ambiances & inspirations" subtitle="Neonwave • Pastel sombre • Ville futuriste">
+  <Section id="skills" title="Mes Skills" subtitle="Les diverses compétences que je maitrise">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 [column-fill: balance]">
+    </div>
+  </Section>
+
+  <Section id="mood" title="Ambiances & inspirations" subtitle="Ce qui nourrit mon imagination !">
     <div class="columns-1 sm:columns-3 lg:columns-3 xl:columns-3 gap-6 [column-fill: balance]">
       {inspirations.map(p => <InspirationCard {...p} />)}
     </div>

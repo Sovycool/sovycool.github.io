@@ -43,16 +43,27 @@ html, body { background: var(--bg); color: var(--text); }
 }
 
 a {
+  text-decoration: none;
   background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat;
   transition: background-size .25s ease;
 }
 
 a:hover {
   background-size: 100% 2px;
+}
+
+.shadow-neon {
   box-shadow:
-      0 0 10px var(--glow-1),
+      0 0 5px var(--glow-1),
+      0 0 10px var(--glow-2);
+    transition: box-shadow .3s ease, transform .3s ease;
+}
+
+.shadow-neon:hover {
+  box-shadow:
+      0 0 10px var(--accent),
       0 0 20px var(--glow-2);
-  }
+    transform: scale(1.05);
 }
 
 body {
@@ -64,4 +75,27 @@ body {
   0% {background-position: 0% 50%;}
   50% {background-position: 100% 50%;}
   100% {background-position: 0% 50%;}
+}
+
+/* État initial (invisible) */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+/* Quand l’élément entre en vue */
+.reveal.in-view {
+  animation: fadeSlideUp 700ms cubic-bezier(.2,.7,.2,1) both;
+  animation-delay: calc(var(--stagger, 0) * 90ms);
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Respecte les réglages d’accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+  .reveal.in-view { animation: none; }
 }

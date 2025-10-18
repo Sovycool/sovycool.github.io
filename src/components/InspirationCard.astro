@@ -1,0 +1,53 @@
+---
+const { title, image, desc, tags = [], href, fullsize = false } = Astro.props;
+---
+<article class={`reveal glass mb-6 break-inside-avoid rounded-2xl p-5 shadow-neon transition relative overflow-hidden ${ fullsize ? "p-0!" : ""}`}>
+  {fullsize ? (
+    href ? (
+      <a href={href ?? "#"} target={href ? "_blank" : "_self"} class="block relative w-full h-64 group">
+      <img
+        src={image}
+        alt={title ? title : "Image d'inspiration"}
+        class="w-full h-full object-cover transition-transform duration-700"
+      />
+
+      <div
+        class="absolute bottom-0 left-0 w-full p-4 flex flex-wrap gap-2 text-xs text-white/80 backdrop-blur-sm"
+      >
+        {tags.map((t: string) => (
+          <span class="px-2 py-1 rounded-full border border-white/20 bg-black/30">
+            {t}
+          </span>
+        ))}
+      </div>
+    </a>
+    ) : (
+      <img src={image} alt={title} class="w-full object-cover rounded-t-2xl" />
+      <div class="absolute bottom-0 left-0 w-full p-4 flex flex-wrap gap-2 text-xs text-white/80 backdrop-blur-sm">
+        {tags.map((t: string) => (
+          <span class="px-2 py-1 rounded-full border border-white/20 bg-black/30">
+            {t}
+          </span>
+        ))}
+      </div>
+    )
+  ) : (
+    <>
+      {image && <img src={image} alt={title} class="rounded-xl mb-4" />}
+      <h3 class="text-xl font-semibold mb-2">{title}</h3>
+      <p class="text-sm text-muted mb-4">{desc}</p>
+      <div class="flex flex-wrap gap-2 mb-4">
+        {tags.map((t: string) => (
+          <span class="text-xs px-2 py-1 rounded-full border border-white/10">
+            {t}
+          </span>
+        ))}
+      </div>
+      {href && (
+        <a class="underline hover:no-underline" href={href} target="_blank">
+          Voir +
+        </a>
+      )}
+    </>
+  )}
+</article>

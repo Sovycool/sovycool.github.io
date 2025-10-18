@@ -5,7 +5,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import InspirationCard from "../components/InspirationCard.astro";
 import { featured } from "../data/projects";
+import { inspirations } from "../data/inspirations";
 ---
 <BaseLayout>
   <Hero />
@@ -24,25 +26,39 @@ import { featured } from "../data/projects";
     </div>
   </Section>
   <Section id="projects" title="Projets phares" subtitle="Sélection récente">
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 [column-fill: balance]">
       {featured.map(p => <ProjectCard {...p} />)}
     </div>
   </Section>
 
   <Section id="mood" title="Ambiances & inspirations" subtitle="Neonwave • Pastel sombre • Ville futuriste">
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="glass h-48 rounded-2xl"></div>
-      <div class="glass h-48 rounded-2xl"></div>
-      <div class="glass h-48 rounded-2xl"></div>
+    <div class="columns-1 sm:columns-3 lg:columns-3 xl:columns-3 gap-6 [column-fill: balance]">
+      {inspirations.map(p => <InspirationCard {...p} />)}
     </div>
   </Section>
 
   <Section id="contact" title="Contact">
     <div class="flex flex-wrap gap-4">
-      <a class="glass px-4 py-2 text-[var(--text)] ring-2 ring-[var(--accent)]" href="mailto:sovann.dufresne@epitech.eu">📧 Email</a>
-      <a class="glass px-4 py-2 text-[var(--text)] ring-2 ring-[var(--accent)]" href="https://github.com/sovycool/" target="_blank">🐙 GitHub</a>
-      <a class="glass px-4 py-2 text-[var(--text)] ring-2 ring-[var(--accent)]" href="https://www.linkedin.com/in/sovann-dufresne/" target="_blank">💼 LinkedIn</a>
+      <a class="glass px-4 py-2 text-[var(--text)] ring-2 ring-[var(--accent)] shadow-neon" href="mailto:sovann.dufresne@epitech.eu">📧 Email</a>
+      <a class="glass px-4 py-2 text-[var(--text)] ring-2 ring-[var(--accent)] shadow-neon" href="https://github.com/sovycool/" target="_blank">🐙 GitHub</a>
+      <a class="glass px-4 py-2 text-[var(--text)] ring-2 ring-[var(--accent)] shadow-neon" href="https://www.linkedin.com/in/sovann-dufresne/" target="_blank">💼 LinkedIn</a>
     </div>
   </Section>
 
 </BaseLayout>
+
+<script>
+  // Observe chaque élément .reveal et lui ajoute .in-view quand il entre dans le viewport.
+  const io = new IntersectionObserver((entries, obs) => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        obs.unobserve(entry.target); // pas besoin de ré-observer
+      }
+    }
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+
+  // On observe tout ce qui a la classe .reveal
+  const els = document.querySelectorAll('.reveal');
+  els.forEach((el) => io.observe(el));
+</script>

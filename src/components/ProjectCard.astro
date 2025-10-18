@@ -1,7 +1,7 @@
 ---
 const { title, image, desc, tags = [], href } = Astro.props;
 ---
-<article class="glass p-5 rounded-2xl shadow-neon transition">
+<article class="reveal glass p-5 rounded-2xl shadow-neon transition">
   {image && <img src={image} alt={title} class="rounded-xl mb-4" />}
   <h3 class="text-xl font-semibold mb-2">{title}</h3>
   <p class="text-sm text-muted mb-4">{desc}</p>

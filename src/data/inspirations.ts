@@ -4,7 +4,7 @@ export const inspirations = [
     desc: "Un RPG au style artistique unique mélangeant pixel art et graphismes en haute définition, avec une bande-son immersive.",
     image: "/images/octopath-traveler.webp",
     tags: ["Videogame", "Visuel", "Ambiance"],
-    href: "https://store.steampowered.com/app/921570/OCTOPATH_TRAVELER/",
+    href: "https://www.square-enix-games.com/games/octopath-traveler",
     fullsize: false
   },
   {
@@ -27,4 +27,12 @@ export const inspirations = [
     tags: ["Cyberpunk", "Vibe", "Couleurs"],
     fullsize: true
   },
+  {
+    title: "Don't Starve",
+    desc: "Un jeu de survie au style artistique sombre et unique, avec des éléments de dessin à la main. Un jeu punitif mais gratifiant.",
+    image: "/images/dont-starve.webp",
+    tags: ["Videogame", "Ambiance", "Graphismes"],
+    href: "https://www.kleientertainment.com/games/dont-starve",
+    fullsize: false
+  }
 ];

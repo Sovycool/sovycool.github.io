@@ -6,8 +6,10 @@ import Hero from "../components/Hero.astro";
 import Section from "../components/Section.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import InspirationCard from "../components/InspirationCard.astro";
+import SkillIcon from "../components/SkillIcon.astro";
 import { featured } from "../data/projects";
 import { inspirations } from "../data/inspirations";
+import { icons } from "../data/skills";
 ---
 <BaseLayout>
   <Hero />
@@ -40,12 +42,13 @@ import { inspirations } from "../data/inspirations";
     </div>
   </Section>
 
-  <Section id="skills" title="Mes Skills" subtitle="Les diverses compétences que je maitrise">
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 [column-fill: balance]">
+  <Section id="skills" title="Mes Skills" subtitle="Les diverses compétences que j'ai acquises">
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-4 place-items-center">
+      {icons.map(s => <SkillIcon {...s} />)}
     </div>
   </Section>
 
-  <Section id="mood" title="Ambiances & inspirations" subtitle="Ce qui nourrit mon imagination !">
+  <Section id="mood" title="Passions & inspirations" subtitle="Ce qui nourrit mon imagination !">
     <div class="columns-1 sm:columns-3 lg:columns-3 xl:columns-3 gap-6 [column-fill: balance]">
       {inspirations.map(p => <InspirationCard {...p} />)}
     </div>

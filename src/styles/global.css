@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "./theme.css";
 
-html, body { background: var(--bg); color: var(--text); }
+html, body { scroll-behavior: smooth; background: var(--bg); color: var(--text); }
 
 .neon-text {
   text-shadow:
@@ -60,7 +60,7 @@ a:hover {
 }
 
 .shadow-neon:hover {
-  box-shadow:
+    box-shadow:
       0 0 10px var(--accent),
       0 0 20px var(--glow-2);
     transform: scale(1.05);

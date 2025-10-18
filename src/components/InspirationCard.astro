@@ -44,7 +44,7 @@ const { title, image, desc, tags = [], href, fullsize = false } = Astro.props;
         ))}
       </div>
       {href && (
-        <a class="underline hover:no-underline" href={href} target="_blank">
+        <a class="px-3 py-2 border border-indigoBrand/40 rounded-[16px] transition shadow-neon" href={href} target="_blank">
           Voir +
         </a>
       )}

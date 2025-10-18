@@ -8,5 +8,5 @@ const { title, image, desc, tags = [], href } = Astro.props;
   <div class="flex flex-wrap gap-2 mb-4">
     {tags.map((t: string) => <span class="text-xs px-2 py-1 rounded-full border border-white/10">{t}</span>)}
   </div>
-  {href && <a href={href} target="_blank">Voir +</a>}
+  {href && <a href={href} target="_blank" class="px-3 py-2 border border-indigoBrand/40 rounded-[16px] transition shadow-neon">Voir +</a>}
 </article>

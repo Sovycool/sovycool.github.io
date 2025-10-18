@@ -9,6 +9,7 @@ html, body { background: var(--bg); color: var(--text); }
     0 0 20px var(--glow-2);
 }
 
+
 .glass {
   backdrop-filter: blur(10px);
   background: rgba(255,255,255,0.05);
@@ -42,9 +43,25 @@ html, body { background: var(--bg); color: var(--text); }
 }
 
 a {
-  background:
-    linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 2px no-repeat;
   transition: background-size .25s ease;
 }
 
-a:hover { background-size: 100% 2px; }
+a:hover {
+  background-size: 100% 2px;
+  box-shadow:
+      0 0 10px var(--glow-1),
+      0 0 20px var(--glow-2);
+  }
+}
+
+body {
+  background: linear-gradient(120deg, var(--violet-900), var(--violet-800), var(--blue-400));
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+}
+@keyframes gradientShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}

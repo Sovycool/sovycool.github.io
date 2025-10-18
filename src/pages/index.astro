@@ -20,10 +20,9 @@ import { featured } from "../data/projects";
           dont mon jeu principal <strong>The Greed</strong>.
         </p>
       </div>
-      <img class="rounded-2xl" src="/images/portrait.jpg" alt="Sovann" />
+      <img class="rounded-2xl" src="/images/pp.png" alt="C'est moiii" />
     </div>
   </Section>
-
   <Section id="projects" title="Projets phares" subtitle="Sélection récente">
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {featured.map(p => <ProjectCard {...p} />)}
@@ -40,9 +39,10 @@ import { featured } from "../data/projects";
 
   <Section id="contact" title="Contact">
     <div class="flex flex-wrap gap-4">
-      <a class="glass px-4 py-2" href="mailto:sovann.dufresne@epitech.eu">📧 Email</a>
-      <a class="glass px-4 py-2" href="https://github.com/sovycool/" target="_blank">🐙 GitHub</a>
-      <a class="glass px-4 py-2" href="https://www.linkedin.com/in/sovann-dufresne/" target="_blank">💼 LinkedIn</a>
+      <a class="glass px-4 py-2 text-[var(--text)] ring-2 ring-[var(--accent)]" href="mailto:sovann.dufresne@epitech.eu">📧 Email</a>
+      <a class="glass px-4 py-2 text-[var(--text)] ring-2 ring-[var(--accent)]" href="https://github.com/sovycool/" target="_blank">🐙 GitHub</a>
+      <a class="glass px-4 py-2 text-[var(--text)] ring-2 ring-[var(--accent)]" href="https://www.linkedin.com/in/sovann-dufresne/" target="_blank">💼 LinkedIn</a>
     </div>
   </Section>
+
 </BaseLayout>

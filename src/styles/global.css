@@ -53,6 +53,9 @@ html, body { scroll-behavior: smooth; background: var(--bg); color: var(--text);
   position: absolute;
   width: 2px; height: 2px;
   background: white;
+  box-shadow:
+      0 0 10px var(--glow-1),
+      0 0 15px var(--glow-2);
   border-radius: 50%;
   opacity: 0.6;
   animation: twinkle 5s infinite ease-in-out;

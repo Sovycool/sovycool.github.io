@@ -1,6 +1,6 @@
 ---
-const { title, icon } = Astro.props;
+const { title, icon, style } = Astro.props;
 ---
-<article class="reveal glass w-20 h-20 sm:w-24 sm:h-24 rounded-xl flex items-center justify-center transition hover:scale-110 hover:shadow-neon" title={title}>
+<article class="reveal glass w-20 h-20 sm:w-24 sm:h-24 rounded-xl flex items-center justify-center transition hover:scale-110 shadow-neon" title={title} style={style}>
   {icon && (<img src={icon} alt={title} class="w-3/4 h-3/4 object-contain" loading="lazy"/>)}
 </article>

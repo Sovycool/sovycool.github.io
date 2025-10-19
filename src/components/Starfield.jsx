@@ -1,9 +1,9 @@
 export default function Starfield() {
   return (
     <div
-      className="absolute inset-0 pointer-events-none"
+      className="absolute inset-0 pointer-events-none starfield"
       ref={(el) => {
-        for (let i = 0; i < 150; i++) {
+        for (let i = 0; i < 2000; i++) {
           const star = document.createElement('span');
           star.style.position = 'absolute';
           star.style.left = Math.random() * 100 + '%';

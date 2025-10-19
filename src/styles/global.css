@@ -4,11 +4,21 @@
 html, body { scroll-behavior: smooth; background: var(--bg); color: var(--text); }
 
 .neon-text {
-  text-shadow:
-    0 0 10px var(--glow-1),
-    0 0 20px var(--glow-2);
+  filter: drop-shadow(0 0 5px var(--glow-1))
+          drop-shadow(0 0 15px var(--glow-2))
 }
 
+.text-shine {
+  background: linear-gradient(120deg, var(--text) 0%, var(--muted) 25%, var(--text) 35%);
+  background-size: 200% auto;
+  background-clip: text;
+  color: transparent;
+  animation: shine 10s linear infinite;
+}
+@keyframes shine {
+  0% { background-position: -200%; }
+  100% { background-position: 200%; }
+}
 
 .glass {
   backdrop-filter: blur(10px);
@@ -25,9 +35,19 @@ html, body { scroll-behavior: smooth; background: var(--bg); color: var(--text);
 }
 
 .starfield {
-  position: absolute; inset: 0;
-  overflow: hidden;
+  position: absolute;
+  width: 350vmax; height: 350vmax;
+  left: -50%;
+  top: -50%;
+  transform-origin: -20vw 120vh;
+  transform: translate(-50%, -50%);
+  inset: 0;
   pointer-events: none;
+  animation : starfieldMove 400s linear infinite;
+}
+@keyframes starfieldMove {
+  from { transform: rotate(0deg) translate(-50%, -50%); }
+  to { transform: rotate(360deg) translate(-50%, -50%); }
 }
 .starfield span {
   position: absolute;
@@ -75,6 +95,17 @@ body {
   0% {background-position: 0% 50%;}
   50% {background-position: 100% 50%;}
   100% {background-position: 0% 50%;}
+}
+
+.fade {
+  opacity: 0;
+  transform: translateX(20px);
+  animation: fade 1s ease forwards;
+  animation-delay: calc(var(--stagger, 0) * 90ms);
+}
+
+@keyframes fade{
+  to { opacity: 1; transform: translateX(0); }
 }
 
 /* État initial (invisible) */

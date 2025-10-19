@@ -21,7 +21,7 @@ import { icons } from "../data/skills";
   <!-- Texte ensuite en mobile, à droite en desktop -->
   <Section id="about" title="À propos" subtitle="Un profil curieux et créatif" class="order-2 md:order-2 w-full">
     <div class="w-full">
-      <div class="glass p-5 sm:p-6 rounded-2xl text-center md:text-left">
+      <div class="glass p-5 sm:p-6 rounded-2xl shadow-neon">
         <p>
           Je m'appelle <span class="neon-text"><strong>Sovann Dufresne</strong></span> — étudiant EPITECH Mulhouse.
           J'adore concevoir des expériences visuelles et ludiques, mêlant
@@ -42,7 +42,7 @@ import { icons } from "../data/skills";
     </div>
   </Section>
 
-  <Section id="skills" title="Mes Skills" subtitle="Les diverses compétences que j'ai acquises">
+  <Section id="skills" title="Compétences & outils" subtitle="Mes technos et outils de prédilection">
     <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-4 place-items-center">
       {icons.map(s => <SkillIcon {...s} />)}
     </div>
